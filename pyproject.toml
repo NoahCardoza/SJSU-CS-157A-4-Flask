@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "hiddengems"
+version = "0.1.0"
+description = ""
+authors = ["NoahCardoza <noahcardoza@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+flask = "^3.0.0"
+mysql-connector-python = "^8.1.0"
+click = "^8.1.7"
+python-dotenv = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

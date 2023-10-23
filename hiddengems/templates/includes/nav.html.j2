@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Hidden Gems</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link {{ 'active' if request.path == '/' else '' }}" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ 'active' if request.path == url_for('routes.auth.login') else '' }}"
+            href="{{ url_for('routes.auth.logout') if g.user else url_for('routes.auth.login') }}">{{
+            'Logout' if g.user else 'Login' }}</a>
+        </li>
+        {% if not g.user %}
+        <li class="nav-item">
+          <a class="nav-link {{ 'active' if request.path == url_for('routes.auth.signup') else '' }}"
+            href="{{url_for('routes.auth.signup')}}">Signup</a>
+        </li>
+        {% endif %}
+      </ul>
+      <form class="d-flex mb-0" action="search" method="get">
+        <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
